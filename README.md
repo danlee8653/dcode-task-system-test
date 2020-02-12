@@ -1,6 +1,14 @@
 ## Usage
 
-To get started, make sure you have [Docker installed](https://docs.docker.com/docker-for-mac/install/) on your system, and then clone this repository. Add your entire Laravel project to the `src` folder, then open a terminal and from this cloned respository's root run the following:
+Make sure you have [Docker installed](https://docs.docker.com/docker-for-mac/install/) on your system.
+
+Navigate to the `/src` folder and run the following:
+
+- `composer install`
+- `npm install`
+- `npm run dev`
+
+Then root directory run the following:
 
 - `docker-compose build`
 - `docker-compose up -d`
