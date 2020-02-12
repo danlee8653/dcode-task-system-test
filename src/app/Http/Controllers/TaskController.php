@@ -48,7 +48,9 @@ class TaskController extends Controller
      */
     public function store(StoreTask $request)
     {
-        dd($request->all());
+        $this->taskRepository->create($request->all());
+
+        return $this->index();
     }
 
     /**
