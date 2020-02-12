@@ -11,12 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'Auth\LoginController@showLoginForm');
 
 Route::get('/tasks', 'TaskController@index')->name('tasks');

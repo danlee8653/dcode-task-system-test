@@ -2,6 +2,7 @@ version: '3'
 
 networks:
   laravel:
+    driver: bridge
 
 services:
   nginx:
@@ -20,7 +21,7 @@ services:
 
   mysql:
     image: mysql:5.7.22
-    container_name: mysql
+    container_name: mysql_container
     restart: unless-stopped
     tty: true
     ports:

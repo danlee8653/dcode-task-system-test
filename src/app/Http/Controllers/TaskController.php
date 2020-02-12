@@ -3,13 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use App\Repositories\Interfaces\TaskRepositoryInterface;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    public function __construct()
+    private $taskRepository;
+
+    public function __construct(TaskRepositoryInterface $taskRepository)
     {
         $this->middleware('auth');
+        $this->taskRepository = $taskRepository;
     }
 
     /**
@@ -19,7 +23,9 @@ class TaskController extends Controller
      */
     public function index()
     {
-        
+        dd($this->taskRepository->all());
+
+        return view('tasks.list');
     }
 
     /**
