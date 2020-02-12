@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Tasks</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -24,18 +24,20 @@
 
             .content {
                 width: 1280px;
+                margin-top: 100px;
             }
         </style>
     </head>
     <body>
         <div class="container">
             <div class="content">
+                <h1>Task List</h1>
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
                         <th scope="col">Due Date</th>
                         <th scope="col">Edit</th>
                         <th scope="col">Delete</th>
@@ -54,7 +56,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                <button type="button" class="btn btn-success">Add Task</button>
+                <a href="{{ url('/tasks/create') }}" class="btn btn-success btn-lg active" role="button">Add Task</a>
             </div>
         </div>
     </body>

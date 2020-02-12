@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreTask;
 use App\Http\Resources\TaskCollection;
 use App\Models\Task;
 use App\Repositories\Interfaces\TaskRepositoryInterface;
@@ -36,7 +37,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        //
+        return view('tasks.details');   
     }
 
     /**
@@ -45,9 +46,9 @@ class TaskController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreTask $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
