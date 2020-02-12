@@ -36,7 +36,7 @@ abstract class BaseRepository implements RepositoryInterface
         return $this->model->destroy($id);
     }
 
-    public function show($id)
+    public function find($id)
     {
         return $this->model->findOrFail($id);
     }

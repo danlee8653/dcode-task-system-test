@@ -23,13 +23,12 @@
 
 
             .content {
-                width: 1000px;
+                width: 1280px;
             }
         </style>
     </head>
     <body>
         <div class="container">
-
             <div class="content">
                 <table class="table">
                     <thead class="thead-dark">
@@ -37,30 +36,25 @@
                         <th scope="col">#</th>
                         <th scope="col">First</th>
                         <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">Due Date</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        </tr>
-                        <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        </tr>
-                        <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                        </tr>
+                        @foreach ($tasks->collection as $task)
+                            <tr>
+                                <th scope="row">{{ $task->id }}</th>
+                                <td>{{ $task->title }} </td>
+                                <td>{{ $task->description }}</td>
+                                <td>{{ $task->due_date }}</td>
+                                <td><a href="/tasks/edit/{{ $task->id }}" class="btn btn-warning btn-lg active" role="button">Edit</a></td>
+                                <td><a href="/tasks/delete/{{ $task->id }}" class="btn btn-danger btn-lg active" role="button">Delete</a></td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
+                <button type="button" class="btn btn-success">Add Task</button>
             </div>
         </div>
     </body>

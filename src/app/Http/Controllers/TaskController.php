@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\TaskCollection;
 use App\Models\Task;
 use App\Repositories\Interfaces\TaskRepositoryInterface;
 use Illuminate\Http\Request;
@@ -23,9 +24,9 @@ class TaskController extends Controller
      */
     public function index()
     {
-        dd($this->taskRepository->all());
+        $tasks = new TaskCollection($this->taskRepository->all());
 
-        return view('tasks.list');
+        return view('tasks.list', ['tasks' => $tasks]);
     }
 
     /**
