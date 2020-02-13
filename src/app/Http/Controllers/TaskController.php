@@ -37,7 +37,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        return view('tasks.details');   
+        return view('tasks.create');   
     }
 
     /**
@@ -54,17 +54,6 @@ class TaskController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Task  $task
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Task $task)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Task  $task
@@ -72,7 +61,7 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-        
+        return view('tasks.edit', ['task' => $task]);
     }
 
     /**
@@ -82,9 +71,11 @@ class TaskController extends Controller
      * @param  \App\Models\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Task $task)
+    public function update(StoreTask $request, Task $task)
     {
-        //
+        $this->taskRepository->update($request->all(), $task->id);
+
+        return $this->index();
     }
 
     /**
