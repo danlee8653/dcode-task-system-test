@@ -15,11 +15,4 @@ Auth::routes();
 
 Route::get('/', 'Auth\LoginController@showLoginForm');
 
-Route::group(['prefix' => 'tasks', 'as' => 'tasks.'], function () {
-    Route::get('/', 'TaskController@index')->name('index');
-    Route::get('/create', 'TaskController@create')->name('create');
-    Route::post('/store', 'TaskController@store')->name('store');
-    Route::get('/edit/{task}', 'TaskController@edit')->name('edit');
-    Route::post('/update/{task}', 'TaskController@update')->name('update');
-	Route::get('/delete/{task}', 'TaskController@destroy')->name('delete');
-});
+Route::resource('tasks', 'TaskController')->except(['show']);

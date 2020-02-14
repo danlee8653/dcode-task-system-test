@@ -50,7 +50,7 @@ class TaskController extends Controller
     {
         $this->taskRepository->create($request->all());
 
-        return $this->index();
+        return redirect()->route('tasks.index');
     }
 
     /**
@@ -75,7 +75,7 @@ class TaskController extends Controller
     {
         $this->taskRepository->update($request->all(), $task->id);
 
-        return $this->index();
+        return redirect()->route('tasks.index');
     }
 
     /**
@@ -88,6 +88,6 @@ class TaskController extends Controller
     {
         $task->delete();
 
-        return $this->index();
+        return redirect()->route('tasks.index');
     }
 }
